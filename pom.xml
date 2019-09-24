@@ -29,7 +29,18 @@
 				<enabled>false</enabled>
 			</releases>
 		</pluginRepository>
-	</pluginRepositories>
+  <pluginRepository>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <id>sonatype-nexus-releases</id>
+      <name>Sonatype Nexus Releases</name>
+      <url>https://oss.sonatype.org/content/repositories/releases/</url>
+    </pluginRepository>
+</pluginRepositories>
 
 	<repositories>
 		<repository>
@@ -43,7 +54,7 @@
 			<dependency>
 				<groupId>org.microshed.boost.boms</groupId>
 				<artifactId>mp22-bom</artifactId>
-				<version>0.2</version>
+				<version>0.2.1</version>
 				<scope>import</scope>
 				<type>pom</type>
 			</dependency>
@@ -93,11 +104,6 @@
 			<version>42.2.6</version>
 		</dependency>
 		<dependency>
-			<groupId>org.microshed.boost.boosters</groupId>
-			<artifactId>mp-openapi</artifactId>
-		</dependency>
-
-		<dependency>
 			<artifactId>microshed-testing-liberty</artifactId>
 			<groupId>com.github.microshed.microshed-testing</groupId>
 			<version>0.4.1-beta</version>
@@ -139,7 +145,7 @@
 			<plugin>
 				<groupId>org.microshed.boost</groupId>
 				<artifactId>boost-maven-plugin</artifactId>
-				<version>0.2</version>
+				<version>0.2.1</version>
 				<executions>
 					<execution>
 						<goals>
@@ -176,11 +182,11 @@
 						</goals>
 						<configuration>
 							<trimStackTrace>false</trimStackTrace>
-							<systemProperties>
+							<systemPropertyVariables>
 								<microshed_hostname>localhost</microshed_hostname>
 								<microshed_http_port>9080</microshed_http_port>
 								<WLP_USR_DIR>${project.build.directory}/liberty/wlp/usr</WLP_USR_DIR>
-							</systemProperties>
+							</systemPropertyVariables>
 						</configuration>
 					</execution>
 					<execution>
